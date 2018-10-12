@@ -1,0 +1,460 @@
+﻿Version     0.0
+Platform    uOLED-160-G2-L
+PlatRes     128x160
+Depends
+end
+Options
+    Visualizer
+    Speed                        0
+    Checksum                     No
+    ResponseSize                 0
+    Multidrop                    No
+    Destination                  0
+    DestBank                     0
+    MainForm                     0
+    SndBuf                       0
+    ButtonDisable                No
+    SignedDigits                 No
+end
+Form
+    Name                         Form2
+    Alias                        Form2
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+AngularMeter
+    Name                         Angularmeter1
+    Alias                        Angularmeter1
+    Angle                        -50
+    AngleOffset                  280
+    Caption                      Vario
+    CaptionXOffset               25
+    CaptionYOffset               -15
+    CenterDotColor               clWhite
+    CenterDotWidth               2
+    Color                        BLACK
+    ColorZone1                   clGreen
+    ColorZone2                   clBlue
+    ColorZone3                   clRed
+    Decimals                     1
+    Font.Color                   clWhite
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    8
+    Font.Style                   []
+    Height                       128
+    Labels                       10
+    LabelsFont.Color             clWhite
+    LabelsFont.Effects           []
+    LabelsFont.Name              Tahoma
+    LabelsFont.Size              7
+    LabelsFont.Style             []
+    LabelsOffset                 -12
+    Left                         0
+    Maxvalue                     5
+    Minvalue                     -5
+    NeedleBasewidth              8
+    NeedleColor                  RED
+    NeedleLength                 -1
+    Percent1                     50
+    Percent2                     50
+    Radius                       -1
+    Spacing                      12
+    Ticks                        10
+    TicksColor                   clWhite
+    TicksEnlarge                 5
+    TicksMax                     12
+    TicksMin                     10
+    Top                          0
+    Width                        134
+    OnChanged                    ''
+end
+LedDigits
+    Name                         Leddigits2
+    Alias                        Leddigits2
+    Color                        BLACK
+    Decimals                     1
+    Digits                       2
+    Height                       18
+    LeadingZero                  Yes
+    Left                         108
+    OutlineColor                 BLACK
+    Palette.High                 WHITE
+    Palette.Low                  BLACK
+    Top                          68
+    Width                        30
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+CustomDigits
+    Name                         Customdigits1
+    Alias                        Customdigits1
+    Bitmap                       (None)
+    Digits                       4
+    LeadingZero                  Yes
+    Left                         108
+    Top                          44
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+StaticText
+    Name                         Statictext2
+    Alias                        Statictext2
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      m
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         145
+    Top                          44
+    Transparent                  Yes
+    Width                        10
+    WordWrap                     Yes
+end
+StaticText
+    Name                         Statictext1
+    Alias                        Statictext1
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      m/s
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         138
+    Top                          72
+    Transparent                  Yes
+    Width                        20
+    WordWrap                     Yes
+end
+Label
+    Name                         Label2
+    Alias                        Label2
+    4DGLFont.Font                SYSTEM
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      ''
+    FGcolor                      WHITE
+    Left                         100
+    Top                          73
+end
+LedDigits
+    Name                         Velocita
+    Alias                        Velocita
+    Color                        BLACK
+    Decimals                     1
+    Digits                       3
+    Height                       18
+    LeadingZero                  Yes
+    Left                         117
+    OutlineColor                 BLACK
+    Palette.High                 AQUA
+    Palette.Low                  BLACK
+    Top                          0
+    Width                        42
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+StaticText
+    Name                         Velocita_Text
+    Alias                        Velocita_Text
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      km/h
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         130
+    Top                          20
+    Transparent                  Yes
+    Width                        28
+    WordWrap                     Yes
+end
+LedDigits
+    Name                         Efficienza
+    Alias                        Efficienza
+    Color                        BLACK
+    Decimals                     1
+    Digits                       3
+    Height                       18
+    LeadingZero                  Yes
+    Left                         117
+    OutlineColor                 BLACK
+    Palette.High                 AQUA
+    Palette.Low                  BLACK
+    Top                          110
+    Width                        42
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+StaticText
+    Name                         Eff.
+    Alias                        Eff.
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      Eff.
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         136
+    Top                          96
+    Transparent                  Yes
+    Width                        19
+    WordWrap                     Yes
+end
+Led
+    Name                         Led1
+    Alias                        Led1
+    Active                       No
+    Caption                      ''
+    Color                        BLACK
+    Font.Color                   clWhite
+    Font.Effects                 []
+    Font.Name                    Arial
+    Font.Size                    8
+    Font.Style                   []
+    Glyphs                       (None)
+    Height                       16
+    Layout                       Left
+    LedType                      Rounded
+    Left                         0
+    Palette.High                 YELLOW
+    Palette.Low                  RED
+    Spacing                      5
+    Top                          12
+    Width                        15
+    OnChanged                    ''
+end
+StaticText
+    Name                         Statictext3
+    Alias                        Statictext3
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      Fix
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       14
+    Left                         0
+    Top                          0
+    Transparent                  Yes
+    Width                        14
+    WordWrap                     Yes
+end
+Form
+    Name                         Form3
+    Alias                        Form3
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Scope
+    Name                         Scope1
+    Alias                        Scope1
+    Color                        BLACK
+    GraticuleColor               0x005100
+    GraticuleVisible             Yes
+    GraticuleXinc                10
+    GraticuleYinc                10
+    Height                       128
+    Left                         0
+    RefreshIncrement             10
+    Top                          0
+    Trace1Color                  LIME
+    Trace2Color                  BLUE
+    Trace3Color                  RED
+    Trace4Color                  FUCHSIA
+    Traces                       1
+    Width                        160
+    Xmag                         0
+    Yamp                         100
+    YLine                        49
+    YLineColor                   YELLOW
+    YLineVisible                 Yes
+    Yoffset                      0
+end
+Form
+    Name                         Form5
+    Alias                        Form5
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Gauge
+    Name                         Gauge1
+    Alias                        Gauge1
+    Bevel.BorderColor            clBtnFace
+    Bevel.BorderWidth            0
+    Bevel.InnerColor             BLACK
+    Bevel.InnerHighlight         clBtnHighlight
+    Bevel.InnerOutline           None
+    Bevel.InnerShadow            clBtnShadow
+    Bevel.InnerSpace             1
+    Bevel.InnerStyle             Lowered
+    Bevel.Innerwidth             2
+    Bevel.OuterColor             clBtnFace
+    Bevel.OuterHighlight         clBtnHighlight
+    Bevel.OuterOutline           Outer
+    Bevel.OuterShadow            clBtnShadow
+    Bevel.OuterSpace             0
+    Bevel.OuterStyle             Raised
+    Bevel.Outerwidth             1
+    Bevel.Visible                Yes
+    Color                        BLACK
+    Height                       128
+    Left                         0
+    Maxvalue                     5
+    Minvalue                     -5
+    Orientation                  Vertical
+    Palette1.High                RED
+    Palette1.Low                 BLACK
+    Palette2.High                clYellow
+    Palette2.Low                 0x005151
+    Palette3.High                LIME
+    Palette3.Low                 BLACK
+    Percent1                     50
+    Percent2                     0
+    Spacing                      1
+    Step                         10
+    Style                        BottomLeft
+    TickHeight                   1
+    Top                          0
+    Width                        35
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits1
+    Alias                        Leddigits1
+    Color                        BLACK
+    Decimals                     2
+    Digits                       4
+    Height                       24
+    LeadingZero                  Yes
+    Left                         95
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          8
+    Width                        65
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Scale
+    Name                         Scale2
+    Alias                        Scale2
+    Alignment                    Center
+    Color                        BLACK
+    Digits                       3
+    Font.Color                   GREEN
+    Font.Effects                 []
+    Font.Name                    Arial
+    Font.Size                    7
+    Font.Style                   []
+    Height                       126
+    Layout                       Center
+    LeadingZero                  No
+    Left                         28
+    Maxvalue                     5
+    Minvalue                     -5
+    Orientation                  Vertical
+    PeakColor                    LIME
+    PeakLevel                    80
+    Scalecolor                   GREEN
+    ScaleOffset                  4
+    ShowSign                     Yes
+    TickMarks                    None
+    Ticks                        5
+    TicksHeight                  5
+    TicksWidth                   1
+    Top                          2
+    Transparent                  No
+    Width                        31
+end
+LedDigits
+    Name                         Leddigits3
+    Alias                        Leddigits3
+    Color                        BLACK
+    Decimals                     2
+    Digits                       2
+    Height                       18
+    LeadingZero                  Yes
+    Left                         52
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          52
+    Width                        35
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
