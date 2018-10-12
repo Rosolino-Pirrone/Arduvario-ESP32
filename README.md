@@ -1,8 +1,8 @@
 # Arduvario-ESP32
 Semplice strumento per il volo libero. Componenti: Esp32, MS5611, Adafruit Ultimate GPS Breakout - 66 canali 
 Non mi assumo nessuna responsabilità e il corretto funzionamento del progetto.
-Successivamente posterò lo schema delle connessioni, anche se per chi si intente di un minimo di progettazione su base Arduino non dovrebbero esserci problemi anche solo analizzando il codice. 
-Per quel che riguarda la serial uart1 bisogna assegnare i pgpio nel modo seguente nella libreria ESP32:
+Successivamente posterò lo schema delle connessioni, anche se per chi si intente di un minimo di progettazione su base Arduino non dovrebbero esserci problemi anche solo analizzando il codice. Sostiruire i file delle corrispettive librerie o modificarle nel modo seguente:
+Per quel che riguarda la serial uart1 bisogna assegnare i gpio nel modo seguente nella libreria ESP32
 
 void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, int8_t txPin, bool invert
 
@@ -31,7 +31,7 @@ void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, in
 }
 
 
-Per quel che riguarda i vece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file 
+Per quel che riguarda invece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file 
 Adafruit_GPS.h 
 
 // Floating point latitude and longitude value in degrees.
@@ -39,6 +39,7 @@ Adafruit_GPS.h
   char stringa_RMC[120];
   
   e successivamente passare il valore delle stringhe NMEA nel parsing nel file Adafruit_GPS.cpp in questo modo
+  
   // look for a few common sentences
   
   if (strstr(nmea, "$GPGGA")) {
