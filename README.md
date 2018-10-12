@@ -54,4 +54,4 @@ Adafruit_GPS.h
     char *p = nmea;
 	strncpy(stringa_RMC, p, 120);
     // get time
-
+https://photos.app.goo.gl/6qEsDHLoZttG9dmz9
