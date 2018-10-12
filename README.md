@@ -4,6 +4,7 @@ Non mi assumo nessuna responsabilità e il corretto funzionamento del progetto.
 Successivamente posterò lo schema delle connessioni, anche se per chi si intente di un minimo di progettazione su base Arduino non dovrebbero esserci problemi anche solo analizzando il codice. 
 Per quel che riguarda la serial uart1 bisogna assegnare i pgpio nel modo seguente nella libreria ESP3:
 void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, int8_t txPin, bool invert)
+
 {
     if(0 > _uart_nr || _uart_nr > 2) {
         log_e("Serial number is invalid, please use 0, 1 or 2");
@@ -26,6 +27,7 @@ void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, in
     }
     _uart = uartBegin(_uart_nr, baud, config, rxPin, txPin, 256, invert);
 }
+
 Per quel che riguarda i vece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file 
 Adafruit_GPS.h 
 // Floating point latitude and longitude value in degrees.
