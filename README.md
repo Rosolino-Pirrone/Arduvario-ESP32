@@ -45,8 +45,10 @@ Adafruit_GPS.h
 	strncpy(stringa_GGA, p, 120);
     // get time
     
+    
     if (strstr(nmea, "$GPRMC")) {
    // found RMC
     char *p = nmea;
 	strncpy(stringa_RMC, p, 120);
     // get time
+}
