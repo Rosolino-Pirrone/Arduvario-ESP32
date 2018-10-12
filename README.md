@@ -26,13 +26,13 @@ void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, in
     }
     _uart = uartBegin(_uart_nr, baud, config, rxPin, txPin, 256, invert);
 }
-Per quel che riguarda i vece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file .h e
+Per quel che riguarda i vece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file 
 Adafruit_GPS.h 
 // Floating point latitude and longitude value in degrees.
   char stringa_GGA[120];
   char stringa_RMC[120];
   
-  e successivamente passare il valore delle stringhe NMEA nel parsing in questo modo
+  e successivamente passare il valore delle stringhe NMEA nel parsing nel file Adafruit_GPS.cpp in questo modo
   // look for a few common sentences
   if (strstr(nmea, "$GPGGA")) {
     // found GGA
