@@ -3,6 +3,7 @@ Semplice strumento per il volo libero. Componenti: Esp32, MS5611, Adafruit Ultim
 Non mi assumo nessuna responsabilità e il corretto funzionamento del progetto.
 Successivamente posterò lo schema delle connessioni, anche se per chi si intente di un minimo di progettazione su base Arduino non dovrebbero esserci problemi anche solo analizzando il codice. 
 Per quel che riguarda la serial uart1 bisogna assegnare i pgpio nel modo seguente nella libreria ESP32:
+
 void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, int8_t txPin, bool invert)
 
 {
