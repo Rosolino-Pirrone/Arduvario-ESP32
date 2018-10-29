@@ -1,4 +1,4 @@
-# Arduvario-ESP32
+# Arduvario-ESP32 bug beep under construction
 Semplice strumento per il volo libero. Componenti: Esp32, MS5611, Adafruit Ultimate GPS Breakout - 66 canali, display 4DSystems UOLED-160-G2.
 Non mi assumo nessuna responsabilità per il corretto funzionamento del progetto.
 Successivamente posterò lo schema delle connessioni, anche se per chi si intente di un minimo di progettazione su base Arduino non dovrebbero esserci problemi anche solo analizzando il codice. Sostiruire i file delle corrispettive librerie o modificarle nel modo seguente:
