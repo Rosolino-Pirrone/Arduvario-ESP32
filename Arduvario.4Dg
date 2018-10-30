@@ -1,0 +1,530 @@
+#platform "GOLDELOX"
+#inherit "VisualConst.inc"
+// Program Skeleton 1.0 generated 17/08/2016 15:54:14
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+#inherit "ArduvarioConst.inc"
+#inherit "LEDDIGITSDISPLAYGOLDELOX.INC"
+// extract a character from a packed string
+// the first character# is 0
+
+// extract a character from a packed string
+// the first character# is 0
+
+
+
+
+
+func main()
+//  Uncomment the following if uSD images, fonts or strings used.
+
+print("Starting\n") ;
+    while(!media_Init())
+        putstr("Drive not mounted...");
+        pause(200);
+        gfx_Cls();
+        pause(200);
+    wend
+
+ gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+  // Angularmeter1 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iAngularmeter1H, iAngularmeter1L) ;      // point to the Angularmeter1 image
+    media_VideoFrame(0, 0, 50) ;          // where numx is 0 to 100 (for a displayed -5 to 5)
+
+    // Leddigits2 1.1 generated 13/09/2016 13:33:05
+    media_SetAdd(iLeddigits2H, iLeddigits2L) ;      // point to the Leddigits2 image
+    media_Image(108, 68) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(0, iiLeddigits2H, iiLeddigits2L, 108, 68, 2, 2, 15, 0) ;
+
+    // Customdigits1 1.1 generated 13/09/2016 13:33:05
+    media_SetAdd(iCustomdigits1H, iCustomdigits1L) ;      // point to the Customdigits1 image
+    media_Image(108, 44) ;                                 // show all digits at 0, only do this once
+    ledDigitsDisplay(0, iiCustomdigits1H, iiCustomdigits1L, 108, 44, 4, 1, 9, 0) ;
+
+    // Statictext2 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iStatictext2H, iStatictext2L) ;      // point to the Statictext2 image
+    media_Image(145, 44) ;            // show image
+
+    // Statictext1 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iStatictext1H, iStatictext1L) ;      // point to the Statictext1 image
+    media_Image(138, 72) ;            // show image
+
+
+
+    // Label2 1.0 generated 17/09/2016 11:10:03
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(100, 73) ;
+    putstr(neg) ;
+
+
+    // Velocita 1.1 generated 17/09/2016 10:35:08
+    media_SetAdd(iVelocitaH, iVelocitaL) ;      // point to the Velocita image
+    media_Image(117, 0) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(0, iiVelocitaH, iiVelocitaL, 117, 0, 3, 2, 14, 0) ;
+
+
+
+    // Velocita_Text 1.0 generated 13/09/2016 14:54:20
+    media_SetAdd(iVelocita_TextH, iVelocita_TextL) ;      // point to the Velocita_Text image
+    media_Image(130, 20) ;            // show image
+
+
+
+    // Eff. 1.0 generated 28/09/2016 10:32:58
+    media_SetAdd(iEff.H, iEff.L) ;      // point to the Eff. image
+    media_Image(136, 96) ;            // show image
+
+    // Efficienza 1.1 generated 28/09/2016 10:33:00
+    media_SetAdd(iEfficienzaH, iEfficienzaL) ;      // point to the Efficienza image
+    media_Image(117, 110) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(0, iiEfficienzaH, iiEfficienzaL, 117, 110, 3, 2, 14, 0) ;
+
+
+
+
+
+
+
+
+
+
+    // Led1 1.0 generated 26/09/2016 21:33:14
+    media_SetAdd(iLed1H, iLed1L) ;      // point to the Led1 image
+    media_VideoFrame(0, 12, 0) ;      // where numx is 0 (Off) or 1 (On)
+
+
+
+    // Statictext3 1.0 generated 26/09/2016 21:33:22
+    media_SetAdd(iStatictext3H, iStatictext3L) ;      // point to the Statictext3 image
+    media_Image(0, 0) ;            // show image
+
+
+
+     // chr1, chr2, chr3, chr4, , nmea[5]
+
+
+pin_Set(SOUND, IO1);
+pin_Set(INPUT, IO2);
+var combuf[30], chr, time[8], quota[5], velo[4], eff[4], fix[2];
+
+//putstr("Default 115.2kb");
+         repeat
+com_Init(combuf, 30, '$');
+
+    repeat
+    chr:=0;
+
+    // Meter1 1.0 generated 04/09/2016 22:41:47
+   // media_SetAdd(iMeter1H, iMeter1L) ;      // point to the Meter1 image
+   // media_VideoFrame(0, 0, 3) ;          // where numx is 0 to 10 (for a displayed 0 to 10)
+
+   /*
+    txt_MoveCursor(2,0);
+    print("\ncom_Sync  ",[DEC2ZB]  com_Sync());
+    print("\ncom_Error  ",[DEC2ZB]  com_Error());
+    print("\ncom_Count  ",[DEC2ZB]  com_Count());
+    print("\ncom_Full  ",[DEC2ZB]  com_Full());*/
+
+    until(com_Full());
+
+    //while ((chr:=serin()) >= 0) putch(chr);
+    //to(nmea);
+    while ((chr:=serin()) != ',')
+    //to(APPEND); putch(chr);
+    wend
+
+
+
+ //   putstr(nmea);
+   // putstr("\n");
+   // while ((chr:=serin()) != ',')
+
+   // wend
+    to(time);
+    while ((chr:=serin()) != ',')
+    to(APPEND); putch(chr);
+    wend
+    var x;
+    x:=0;
+
+    x := strlen(time);
+
+    var num_Dec;
+    num_Dec:=0;
+    var t;
+    t:=0;
+    var i;
+    i:=0;
+    var y;
+    y:=0;
+    var z;
+    z:=0;
+    y := x - 1;
+    var u;
+    u:=0;
+
+
+    t := str_getch(time, 0);
+    if (t == 45)
+
+    u:=1;
+    y:=y-1;
+    for (i:=u; i<x; i++)
+    t := str_getch(time, i);
+    num_Dec := chr_To_numero(t);
+    if (y>0)
+    if (t == 46)
+    num_Dec := 0;
+    z := z / 10;
+    endif
+    z += num_Dec * pov(10, y);
+    else
+    z += num_Dec;
+    endif
+    y--;
+    next
+    z := z * -1;
+
+    else
+
+    x :=x-1;
+    y :=y-1;
+
+
+    for (i:=u; i<x; i++)
+    t := str_getch(time, i);
+    num_Dec := chr_To_numero(t);
+    if (y>0)
+    if (t == 46)
+
+    num_Dec := 0;
+    z := (z / 10);
+    endif
+    z += num_Dec * pov(10, y);
+
+    else
+    z += num_Dec;
+
+    endif
+    y--;
+    next
+    endif
+    var numx, old_Numx, old_Numx2, old_u;
+    //if (w==1) z:=z/10;
+    numx:=z;
+   /*   if (IO2==1) u:=1;
+    if (u==1)
+    old_Numx2:=numx;
+    numx:=-old_Numx2;
+    else
+
+    endif */
+
+    var neg;
+    if (numx<0)
+    neg:=("-");
+    else
+    neg:=("");
+    endif
+    var numxLed;
+    if (numx<0)
+    numxLed:=numx*(-1);
+    else
+    numxLed:=numx;
+    endif
+
+
+    to(quota);
+    while ((chr:=serin()) != ',')
+    to(APPEND); putch(chr);
+    wend
+
+    z:=0;
+    u:=0;
+    x := strlen(quota);
+    y:= x - 1;
+
+    for (i:=u; i<x; i++)
+    t := str_getch(quota, i);
+    num_Dec := chr_To_numero(t);
+    if (y>0)
+    z += num_Dec * pov(10, y);
+     else
+    z += num_Dec;
+
+    endif
+    y--;
+    next
+    var numx1;
+    numx1:=z;  //chr_To_numero(str_getch(quota, 0))*100+chr_To_numero(str_getch(quota, 1))*10+chr_To_numero(str_getch(quota, 2));
+
+
+    while ((chr:=serin()) != ',')   //Temp
+    wend
+
+    to(velo);
+    while ((chr:=serin()) != ',')
+    to(APPEND); putch(chr);
+    wend
+z:=0;
+    u:=0;
+    x := strlen(velo);
+    y:= x - 1;
+
+    for (i:=u; i<x; i++)
+    t := str_getch(velo, i);
+    num_Dec := chr_To_numero(t);
+    if (y>0)
+    z += num_Dec * pov(10, y);
+     else
+    z += num_Dec;
+
+    endif
+    y--;
+    next
+
+    var numx3;
+    numx3:=z;
+
+    to(fix);
+    while ((chr:=serin()) != ',')
+    to(APPEND); putch(chr);
+    wend
+
+    var numx5;
+    if (fix[0]==48) numx5:=0;
+
+    if (fix[0]==49) numx5:=1;
+
+
+
+
+
+    to(eff);
+    while ((chr:=serin()) != ',')
+    to(APPEND); putch(chr);
+    wend
+
+    z:=0;
+    u:=0;
+    x := strlen(eff);
+    y:= x - 1;
+
+    for (i:=u; i<x; i++)
+    t := str_getch(eff, i);
+    num_Dec := chr_To_numero(t);
+    if (y>0)
+    z += num_Dec * pov(10, y);
+     else
+    z += num_Dec;
+
+    endif
+    y--;
+    next
+
+    var numx4;
+    numx4:=z;
+ /*
+    numx4:=chr_To_numero(str_getch(eff, 0))*10+chr_To_numero(str_getch(eff, 1));
+    var vario_eff;
+    vario_eff:=numx;
+    var numx4;
+    if (vario_eff>0)
+    numx4:=99;
+    else
+    vario_eff:=vario_eff*(-1);
+    numx4:= numx3*10/(vario_eff*36);
+    endif
+
+*/
+/*
+    var tempo;
+    var f;
+
+    f := MIN(numx*10, 500);
+    if (f<0) f:= f*(-1);
+    tempo := 500;
+    tempo := tempo - f;
+
+
+    if (numx >= 2 && numx < 10)
+   // *TIMER0:=975;
+    //while(*TIMER0)
+    tune_Play ("e8");
+    pause(tempo);
+    //wend
+    endif
+    if (numx >= 10 && numx < 20)
+    tune_Play ("f8");
+    pause(tempo);
+    endif
+    if (numx >= 20)
+    tune_Play ("g8");
+    pause(tempo);
+    endif
+
+    if (numx <= -18)
+    //*TIMER0:=975;
+    //while(*TIMER0)
+    tune_Play ("1d8");
+    //pause(975);
+   // wend
+    endif
+
+    if (numx>-2 && numx<1) tune_Stop();
+    */
+
+
+    if (numx!=old_Numx)
+    // Angularmeter1 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iAngularmeter1H, iAngularmeter1L) ;      // point to the Angularmeter1 image
+    media_VideoFrame(0, 0, 50 + numx) ;          // where numx is 0 to 100 (for a displayed -5 to 5)
+
+    // Leddigits2 1.1 generated 13/09/2016 13:33:05
+    media_SetAdd(iLeddigits2H, iLeddigits2L) ;      // point to the Leddigits2 image
+    media_Image(108, 68) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(numxLed, iiLeddigits2H, iiLeddigits2L, 108, 68, 2, 2, 15, 0) ;
+
+    // Customdigits1 1.1 generated 13/09/2016 13:33:05
+    media_SetAdd(iCustomdigits1H, iCustomdigits1L) ;      // point to the Customdigits1 image
+    media_Image(108, 44) ;                                 // show all digits at 0, only do this once
+    ledDigitsDisplay(numx1, iiCustomdigits1H, iiCustomdigits1L, 108, 44, 4, 1, 9, 0) ;
+
+
+    // Statictext2 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iStatictext2H, iStatictext2L) ;      // point to the Statictext2 image
+    media_Image(145, 44) ;            // show image
+
+    // Statictext1 1.0 generated 13/09/2016 13:33:05
+    media_SetAdd(iStatictext1H, iStatictext1L) ;      // point to the Statictext1 image
+    media_Image(138, 72) ;            // show image
+
+
+
+    // Label2 1.0 generated 17/09/2016 11:10:03
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(100, 73) ;
+    putstr(neg) ;
+
+
+    // Velocita 1.1 generated 17/09/2016 10:35:08
+    media_SetAdd(iVelocitaH, iVelocitaL) ;      // point to the Velocita image
+    media_Image(117, 0) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(numx3, iiVelocitaH, iiVelocitaL, 117, 0, 3, 2, 14, 0) ;
+
+    // Velocita_Text 1.0 generated 13/09/2016 14:54:20
+    media_SetAdd(iVelocita_TextH, iVelocita_TextL) ;      // point to the Velocita_Text image
+    media_Image(130, 20) ;            // show image
+
+
+    // Eff. 1.0 generated 28/09/2016 10:33:35
+    media_SetAdd(iEff.H, iEff.L) ;      // point to the Eff. image
+    media_Image(136, 96) ;            // show image
+
+    // Efficienza 1.1 generated 28/09/2016 10:33:38
+    media_SetAdd(iEfficienzaH, iEfficienzaL) ;      // point to the Efficienza image
+    media_Image(117, 110) ;            // show all digits at 0, only do this once
+    ledDigitsDisplay(numx4, iiEfficienzaH, iiEfficienzaL, 117, 110, 3, 2, 14, 0) ;
+
+
+
+
+    // Led1 1.0 generated 26/09/2016 21:33:44
+    media_SetAdd(iLed1H, iLed1L) ;      // point to the Led1 image
+    media_VideoFrame(0, 12, numx5) ;      // where numx is 0 (Off) or 1 (On)
+
+
+    // Statictext3 1.0 generated 26/09/2016 21:33:49
+    media_SetAdd(iStatictext3H, iStatictext3L) ;      // point to the Statictext3 image
+    media_Image(0, 0) ;            // show image
+
+
+    endif
+
+
+
+    old_Numx:=numx;
+
+
+
+    com_Init(combuf, 30, '$');
+   // com_Reset();
+    forever
+
+
+
+endfunc
+
+
+ func str_getch(var *array, var idx)
+var x ;
+if ((idx % 2) == 0)
+x := array[idx / 2] & 255 ;
+else
+x := array[idx / 2] >> 8 ;
+endif
+return x ;
+endfunc
+
+
+func chr_To_numero(var char_)
+    var numero;
+
+    switch (char_)
+case 45: // note #1
+numero := 45;
+break; // optional break
+case 46: // note #1
+numero := 46;
+break; // optional break
+case 47: // note #1
+numero := 47;
+break; // optional break
+case 48: // note #1
+numero := 0;
+break; // optional break
+case 49:
+numero := 1;
+break; // optional break
+case 50:
+numero := 2;
+break; // optional break
+case 51:
+numero := 3;
+break; // optional break
+case 52: // note #1
+numero := 4;
+break; // optional break
+case 53:
+numero := 5;
+break; // optional break
+case 54:
+numero := 6;
+break; // optional break
+case 55:
+numero := 7;
+break; // optional break
+case 56:
+numero := 8;
+break; // optional break
+case 57:
+numero := 9;
+break; // optional break
+endswitch
+return numero;
+endfunc
+
+
+func pov(var s, var y)
+var c;
+var i;
+c := s;
+for (i:=0; i<(y-1); i++) c := c * s;
+
+return (c);
+endfunc
