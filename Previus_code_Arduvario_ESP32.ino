@@ -442,20 +442,22 @@ void loop() {
       count_2 = 0;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    Periodo_beep = Vario_al_secondo_suono * 100;
-    if (Periodo_beep > 500) Periodo_beep = 500;
-    Periodo_beep = map(Periodo_beep, 0, 500, 450, 100);
-    Tono_beep = Vario_al_secondo_suono * 100;
-    if (Tono_beep > 500) Tono_beep = 500;
-    Tono_beep = map(Tono_beep, 0, 500, 2000, 2200);
-    Durata_beep =  Vario_al_secondo_suono * 100;
-    if (Durata_beep > 500) Durata_beep = 500;
-    Durata_beep = map(Durata_beep, 0, 500, 380, 50);
-    Tono_beep_disc = Vario_al_secondo_suono * 100;
-    if (Tono_beep_disc < -500) Durata_beep = -500;
-    Tono_beep_disc = map(Tono_beep_disc, 0, -500, 2000, 1800);
-    freq = Tono_beep;
+    
+    
+  Periodo_beep = Vario_al_secondo_suono * 100;
+  if (Periodo_beep > 600) Periodo_beep = 600;
+  Periodo_beep = map(Periodo_beep, 0, 600, 350, 50);
+  Tono_beep = Vario_al_secondo_suono * 100;
+  if (Tono_beep > 600) Tono_beep = 600;
+  Tono_beep = map(Tono_beep, 0, 600, 1500, 2200);
+  Durata_beep =  Vario_al_secondo_suono * 100;
+  if (Durata_beep > 600) Durata_beep = 600;
+  Durata_beep = map(Durata_beep, 0, 600, 380, 50);
+  Tono_beep_disc = Vario_al_secondo_suono * 100;
+  if (Tono_beep_disc < -600) Durata_beep = -500;
+  Tono_beep_disc = map(Tono_beep_disc, 0, -600, 1250, 800);
+  freq = Tono_beep;
+  freq_Discendenza = Tono_beep_disc;
 
 
 
@@ -661,20 +663,22 @@ void loop() {
     count_2 = 0;
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  
+  
   Periodo_beep = Vario_al_secondo_suono * 100;
-  if (Periodo_beep > 500) Periodo_beep = 500;
-  Periodo_beep = map(Periodo_beep, 0, 500, 450, 100);
+  if (Periodo_beep > 600) Periodo_beep = 600;
+  Periodo_beep = map(Periodo_beep, 0, 600, 350, 50);
   Tono_beep = Vario_al_secondo_suono * 100;
-  if (Tono_beep > 500) Tono_beep = 500;
-  Tono_beep = map(Tono_beep, 0, 500, 2000, 2200);
+  if (Tono_beep > 600) Tono_beep = 600;
+  Tono_beep = map(Tono_beep, 0, 600, 1500, 2200);
   Durata_beep =  Vario_al_secondo_suono * 100;
-  if (Durata_beep > 500) Durata_beep = 500;
-  Durata_beep = map(Durata_beep, 0, 500, 380, 50);
+  if (Durata_beep > 600) Durata_beep = 600;
+  Durata_beep = map(Durata_beep, 0, 600, 380, 50);
   Tono_beep_disc = Vario_al_secondo_suono * 100;
-  if (Tono_beep_disc < -500) Durata_beep = -500;
-  Tono_beep_disc = map(Tono_beep_disc, 0, -500, 2000, 1800);
+  if (Tono_beep_disc < -600) Durata_beep = -500;
+  Tono_beep_disc = map(Tono_beep_disc, 0, -600, 1250, 800);
   freq = Tono_beep;
+  freq_Discendenza = Tono_beep_disc;
 
 
 
