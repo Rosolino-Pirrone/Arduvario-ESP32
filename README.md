@@ -33,7 +33,7 @@ void HardwareSerial::begin(unsigned long baud, uint32_t config, int8_t rxPin, in
 
 
 Per quel che riguarda invece la funzione aggiuntiva della libreria Adafruit GPS, bisogna soltanto aggiungere due stringhe char al file 
-Adafruit_GPS.h 
+Adafruit_GPS.h . Volendo anche senza, con l'update del codice senza modifica della library del GPS, inoltre è stato disattivato l'invio delle stringhe GPS tramite WiFi e Bluetooth perchè quasi inutili considerato che quasi tutti i device sono provvisti di GPS
 
 // Floating point latitude and longitude value in degrees.
   char stringa_GGA[120];
